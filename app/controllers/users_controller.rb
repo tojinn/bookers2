@@ -7,10 +7,10 @@ class UsersController < ApplicationController
   end
   
   def index
+   @books = Book.all
    @users = User.all
    @book = Book.new
-   @user = User.find(params[:id])
-   @books = @user.books
+   @user = current_user
   end
   
   def create
