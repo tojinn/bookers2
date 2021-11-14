@@ -1,4 +1,4 @@
 class Book < ApplicationRecord
-    
-    belong_to :user
+    attachment :image
+    belongs_to :user
 end
