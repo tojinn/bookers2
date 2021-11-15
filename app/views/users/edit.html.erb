@@ -1,0 +1,34 @@
+<%= render 'homes/list' %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm-12 col-md8 col-lg-5 px-5 px-sm-0 mx-auto">
+<h2>User info</h2>
+<%= form_with model:@user, local:true do |f| %>
+<div class="form-group">
+<label for="inputName">Name</label>
+<%= f.text_field :name, autofocus: true, id:"inputName", placeholder:"名前",class:'form-control' %>
+</div>
+<div class="form-group">
+ <label for="use-image">image</label>
+  <%= f.attachment_field :profile_image, placeholder: "プロフィール画像", class:'form-control-file' %>
+</div>
+<div class="form-group">
+<label for="inputName">introduction</label>
+  <%= f.text_area :introduction, autofocus: true, id:"inputName", placeholder:"", class:'form-control' %>
+</div>
+<div class="form-group">
+<%= f.submit "Update User", class:"btn btn-secondary" %>
+</div>
+<% end %>
+</div>
+</div>
+</div>
+ <footer>
+   <div class="text-center mt-5">
+     <div class="row">
+      <div class="mx-auto">
+         <p>CopyRight Infratop.inc</p>
+      </div>
+     </div>
+   </div>
+ </footer>
