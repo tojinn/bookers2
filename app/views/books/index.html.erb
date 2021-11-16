@@ -1,4 +1,10 @@
 <%= render 'homes/list' %>
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <%= render 'books/info' %>
 <div class="col-8 offset-md-1">
  <h2>Books</h2>
@@ -14,7 +20,7 @@
    <tbody>
     <% @books.each do |books| %>
     <tr>
-     <td><%= link_to user_path(@user.id) do %><%= attachment_image_tag @user, :profile_image,:fill, 60, 60, fallback: "no_image.jpg" %><% end %></td>
+     <td><%= link_to user_path(@user.id) do %><%= attachment_image_tag @user, :profile_image, size:'40x40', fallback: "no_image.jpg" %><% end %></td>
      <td><%= link_to books.title, book_path(books.id) %></td>
      <td><%= books.body %></td>
     </tr>
