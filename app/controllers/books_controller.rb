@@ -46,7 +46,7 @@ class BooksController < ApplicationController
      if @book.update(book_params)
       redirect_to book_path(@book), notice: "You have update book successfully."
      else 
-      flash[:notice] = "error"
+      flash[:notice] = "errors"
       render :edit
      end
      end
@@ -57,10 +57,8 @@ class BooksController < ApplicationController
      @book.destroy
      redirect_to books_path
     end
-    
+end
     private
     def book_params
         params.require(:book).permit(:title, :body)
     end
-    
-end
